@@ -4,7 +4,7 @@
 #
 Name     : mvn-joda-time
 Version  : 2.2
-Release  : 1
+Release  : 2
 URL      : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
 Source0  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
 Source1  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.pom

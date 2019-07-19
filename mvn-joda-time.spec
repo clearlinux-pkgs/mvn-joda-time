@@ -4,17 +4,24 @@
 #
 Name     : mvn-joda-time
 Version  : 2.2
-Release  : 2
-URL      : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
-Source0  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
-Source1  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.pom
+Release  : 3
+URL      : https://github.com/JodaOrg/joda-time/archive/v2.2.tar.gz
+Source0  : https://github.com/JodaOrg/joda-time/archive/v2.2.tar.gz
+Source1  : https://repo1.maven.org/maven2/joda-time/joda-time/2.10/joda-time-2.10.jar
+Source2  : https://repo1.maven.org/maven2/joda-time/joda-time/2.10/joda-time-2.10.pom
+Source3  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
+Source4  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.pom
+Source5  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+Source6  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-joda-time-data = %{version}-%{release}
 
 %description
-No detailed description available
+Joda-Time
+=========
+Joda-Time is a date and time library that vastly improves on the JDK.
 
 %package data
 Summary: data components for the mvn-joda-time package.
@@ -29,11 +36,23 @@ data components for the mvn-joda-time package.
 %build
 
 %install
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/e/2.2
-cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/joda-time/e/2.2
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/e/2.2
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/joda-time/e/2.2
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.pom
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
 
 
 %files
@@ -41,5 +60,9 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/joda-time/e/2.2
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/java/.m2/repository/joda-time/e/2.2/joda-time-2.2.jar
-/usr/share/java/.m2/repository/joda-time/e/2.2/joda-time-2.2.pom
+/usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar
+/usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.pom
+/usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar
+/usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.pom
+/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom

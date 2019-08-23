@@ -4,19 +4,22 @@
 #
 Name     : mvn-joda-time
 Version  : 2.2
-Release  : 3
+Release  : 4
 URL      : https://github.com/JodaOrg/joda-time/archive/v2.2.tar.gz
 Source0  : https://github.com/JodaOrg/joda-time/archive/v2.2.tar.gz
 Source1  : https://repo1.maven.org/maven2/joda-time/joda-time/2.10/joda-time-2.10.jar
 Source2  : https://repo1.maven.org/maven2/joda-time/joda-time/2.10/joda-time-2.10.pom
 Source3  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.jar
 Source4  : https://repo1.maven.org/maven2/joda-time/joda-time/2.2/joda-time-2.2.pom
-Source5  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
-Source6  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
+Source5  : https://repo1.maven.org/maven2/joda-time/joda-time/2.8.2/joda-time-2.8.2.jar
+Source6  : https://repo1.maven.org/maven2/joda-time/joda-time/2.8.2/joda-time-2.8.2.pom
+Source7  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+Source8  : https://repo1.maven.org/maven2/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-joda-time-data = %{version}-%{release}
+Requires: mvn-joda-time-license = %{version}-%{release}
 
 %description
 Joda-Time
@@ -31,11 +34,22 @@ Group: Data
 data components for the mvn-joda-time package.
 
 
+%package license
+Summary: license components for the mvn-joda-time package.
+Group: Default
+
+%description license
+license components for the mvn-joda-time package.
+
+
 %prep
+%setup -q -n joda-time-2.2
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-joda-time
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/mvn-joda-time/LICENSE.txt
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.jar
 
@@ -48,11 +62,17 @@ cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2
 cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2/joda-time-2.8.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2/joda-time-2.8.2.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
 
 
 %files
@@ -64,5 +84,11 @@ cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/joda-time/joda-time/2.9
 /usr/share/java/.m2/repository/joda-time/joda-time/2.10/joda-time-2.10.pom
 /usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.jar
 /usr/share/java/.m2/repository/joda-time/joda-time/2.2/joda-time-2.2.pom
+/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2/joda-time-2.8.2.jar
+/usr/share/java/.m2/repository/joda-time/joda-time/2.8.2/joda-time-2.8.2.pom
 /usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.jar
 /usr/share/java/.m2/repository/joda-time/joda-time/2.9.3/joda-time-2.9.3.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-joda-time/LICENSE.txt
